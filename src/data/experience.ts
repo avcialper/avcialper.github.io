@@ -32,7 +32,7 @@ export const EXPERIENCES: CompanyExperience[] = [
                 },
                 description: {
                     en: 'Contributing to the development of new features and maintenance of the Fibabanka mobile banking application. Responsible for implementing production-level changes, resolving bugs, supporting SDK upgrades.',
-                    tr: 'Fibabanka mobil bankacılık uygulamasının yeni özellik geliştirme ve bakım süreçlerinde rol alıyorum. Canlı ortam değişikliklerinin uygulanması, hataların çözülmesi ve SDK yükseltmelerinin desteklenmesinden sorumluyum.'
+                    tr: 'Fibabanka mobil bankacılık uygulamasının yeni özelliklerin geliştirilmesi ve bakım süreçlerinde görev alıyorum. Canlı ortam değişikliklerinin uygulanması, hataların çözülmesi ve SDK yükseltmelerinin desteklenmesinden sorumluyum.'
                 },
                 technologies: ['React Native', 'TypeScript', 'Axios', 'React Navigation', 'Redux Toolkit', 'Redux Form', 'Jest']
             },
@@ -47,7 +47,7 @@ export const EXPERIENCES: CompanyExperience[] = [
                 },
                 description: {
                     en: 'Assisted in bug fixing, maintenance tasks, and small feature implementations for the Fibabanka mobile application. Participated in SDK updates, codebase improvements, and internal career development trainings while gaining hands-on experience in a production banking environment.',
-                    tr: 'Fibabanka mobil uygulamasında hata düzeltme, bakım görevleri ve küçük özellik geliştirmelerinde yardımcı oldum. Canlı bankacılık ortamında pratik deneyim kazanırken SDK güncellemelerine, kod tabanı iyileştirmelerine ve şirket içi kariyer gelişim eğitimlerine katıldım.'
+                    tr: 'Fibabanka mobil uygulamasında hata düzeltme, bakım görevleri ve küçük özellik geliştirmelerinde aktif rol aldım. Canlı bankacılık ortamında pratik deneyim kazanırken SDK güncellemelerine, kod tabanı iyileştirmelerine ve şirket içi kariyer gelişim eğitimlerine katıldım.'
                 },
                 technologies: ['React Native', 'TypeScript', 'Axios', 'React Navigation', 'Redux Toolkit', 'Redux Form']
             }
