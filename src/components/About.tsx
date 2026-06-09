@@ -1,13 +1,21 @@
 import SocialLinks from './SocialLinks';
+import { TRANSLATIONS } from '../data/translations';
+import type { Language } from '../data/translations';
 
-export default function About() {
+interface AboutProps {
+    lang: Language;
+}
+
+export default function About({ lang }: AboutProps) {
+    const t = TRANSLATIONS[lang];
+
     return (
         <div className="info-column">
             <h1 className="my-name">
                 Alper AVCI
             </h1>
             <p className="about-text">
-                Hi, I'm Alper. I'm a computer engineer and a mobile developer. I use React Native and Kotlin to build mobile apps.
+                {t.aboutText}
             </p>
             <div className="actions-wrapper">
                 <a
@@ -16,7 +24,7 @@ export default function About() {
                     rel="noopener noreferrer"
                     className="cta-button"
                 >
-                    <span>Download CV</span>
+                    <span>{t.downloadCv}</span>
                     <svg
                         viewBox="0 0 24 24"
                         width="16"

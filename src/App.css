@@ -245,7 +245,6 @@
     background: var(--social-hover-bg);
     border-color: rgba(152, 16, 250, 0.6);
     color: #9810fa;
-    transform: translateY(-3px);
     box-shadow: 0 8px 16px var(--card-shadow);
 }
 
@@ -267,7 +266,36 @@
     background: var(--social-hover-bg);
     border-color: rgba(152, 16, 250, 0.6);
     color: #9810fa;
-    transform: translateY(-3px);
+    box-shadow: 0 8px 16px var(--card-shadow);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.lang-toggle-btn {
+    background: var(--social-bg);
+    border: 1px solid var(--social-border);
+    color: var(--text-primary);
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.lang-toggle-btn:hover {
+    background: var(--social-hover-bg);
+    border-color: rgba(152, 16, 250, 0.6);
+    color: #9810fa;
     box-shadow: 0 8px 16px var(--card-shadow);
 }
 
@@ -290,7 +318,6 @@
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
     background: linear-gradient(135deg, #7c1ad4, #440b6e);
 }
@@ -370,14 +397,6 @@
     color: var(--text-primary);
     margin: 0;
     letter-spacing: -0.01em;
-}
-
-.company-sub {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--accent-indigo);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
 }
 
 .company-roles {
