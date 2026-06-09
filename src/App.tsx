@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import ProfileImage from './components/ProfileImage';
+import Experience from './components/Experience';
 
 export default function App() {
     const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,7 @@ export default function App() {
                     <About />
                     <ProfileImage />
                 </main>
+                <Experience />
             </div>
 
             <footer className="portfolio-footer">
