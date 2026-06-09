@@ -3,11 +3,18 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import ProfileImage from './components/ProfileImage';
+import Experience from './components/Experience';
+import type { Language } from './data/translations';
 
 export default function App() {
     const [loaded, setLoaded] = useState(false);
     const [theme, setTheme] = useState(() => {
         return localStorage.getItem('theme') || 'dark';
+    });
+    const [lang, setLang] = useState<Language>(() => {
+        const saved = localStorage.getItem('lang');
+        if (saved === 'en' || saved === 'tr') return saved;
+        return navigator.language.startsWith('tr') ? 'tr' : 'en';
     });
 
     useEffect(() => {
@@ -24,6 +31,10 @@ export default function App() {
         localStorage.setItem('theme', theme);
     }, [theme]);
 
+    useEffect(() => {
+        localStorage.setItem('lang', lang);
+    }, [lang]);
+
     const toggleTheme = () => {
         setLoaded(false);
         window.setTimeout(() => {
@@ -34,15 +45,20 @@ export default function App() {
         }, 350);
     };
 
+    const toggleLanguage = () => {
+        setLang((prev) => (prev === 'en' ? 'tr' : 'en'));
+    };
+
     return (
         <div className="portfolio-container">
-            <Navbar theme={theme} onToggleTheme={toggleTheme} />
+            <Navbar theme={theme} onToggleTheme={toggleTheme} lang={lang} onToggleLanguage={toggleLanguage} />
 
             <div className={`main-content ${loaded ? 'fade-in' : ''}`}>
                 <main className="content-wrapper">
-                    <About />
+                    <About lang={lang} />
                     <ProfileImage />
                 </main>
+                <Experience lang={lang} />
             </div>
 
             <footer className="portfolio-footer">
