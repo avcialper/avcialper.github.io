@@ -1,12 +1,12 @@
 export const TRANSLATIONS = {
     en: {
-        aboutText: "Hi, I'm Alper. I'm a computer engineer and a mobile developer. I use React Native and Kotlin to build mobile apps.",
+        aboutText: "Hi, I'm Alper. I'm a computer engineer. I build mobile applications using React Native and Kotlin.",
         downloadCv: "Download CV",
         experienceTitle: "experience",
         toggleTheme: "Toggle Theme"
     },
     tr: {
-        aboutText: "Merhaba, ben Alper. Bilgisayar mühendisiyim ve mobil geliştiriciyim. Mobil uygulamalar geliştirmek için React Native ve Kotlin kullanıyorum.",
+        aboutText: "Merhaba, ben Alper. Bilgisayar mühendisiyim. React Native ve Kotlin kullanarak mobil uygulamalar geliştiriyorum.",
         downloadCv: "CV İndir",
         experienceTitle: "deneyim",
         toggleTheme: "Temayı Değiştir"
