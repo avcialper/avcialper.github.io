@@ -40,25 +40,23 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 40%, var(--bg-gradient-end) 60%, var(--bg-gradient-start) 100%);
     color: var(--text-primary);
-    background-attachment: fixed;
     font-family: 'JetBrains Mono', monospace;
     padding: 2rem;
-    overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 *,
 *::before,
 *::after {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .main-content {
@@ -241,11 +239,27 @@
     cursor: pointer;
 }
 
-.social-icon-btn:hover {
+@media (hover: hover) {
+    .social-icon-btn:hover {
+        background: var(--social-hover-bg);
+        border-color: rgba(152, 16, 250, 0.6);
+        color: #9810fa;
+        box-shadow: 0 8px 16px var(--card-shadow);
+    }
+}
+
+.social-icon-btn:active {
     background: var(--social-hover-bg);
-    border-color: rgba(152, 16, 250, 0.6);
-    color: #9810fa;
-    box-shadow: 0 8px 16px var(--card-shadow);
+    opacity: 0.85;
+}
+
+.social-icon-btn:focus {
+    outline: none;
+}
+
+.social-icon-btn:focus-visible {
+    outline: 2px solid var(--accent-indigo);
+    outline-offset: 2px;
 }
 
 .theme-toggle-btn {
@@ -262,11 +276,27 @@
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.theme-toggle-btn:hover {
+@media (hover: hover) {
+    .theme-toggle-btn:hover {
+        background: var(--social-hover-bg);
+        border-color: rgba(152, 16, 250, 0.6);
+        color: #9810fa;
+        box-shadow: 0 8px 16px var(--card-shadow);
+    }
+}
+
+.theme-toggle-btn:active {
     background: var(--social-hover-bg);
-    border-color: rgba(152, 16, 250, 0.6);
-    color: #9810fa;
-    box-shadow: 0 8px 16px var(--card-shadow);
+    opacity: 0.85;
+}
+
+.theme-toggle-btn:focus {
+    outline: none;
+}
+
+.theme-toggle-btn:focus-visible {
+    outline: 2px solid var(--accent-indigo);
+    outline-offset: 2px;
 }
 
 .nav-actions {
@@ -292,11 +322,27 @@
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.lang-toggle-btn:hover {
+@media (hover: hover) {
+    .lang-toggle-btn:hover {
+        background: var(--social-hover-bg);
+        border-color: rgba(152, 16, 250, 0.6);
+        color: #9810fa;
+        box-shadow: 0 8px 16px var(--card-shadow);
+    }
+}
+
+.lang-toggle-btn:active {
     background: var(--social-hover-bg);
-    border-color: rgba(152, 16, 250, 0.6);
-    color: #9810fa;
-    box-shadow: 0 8px 16px var(--card-shadow);
+    opacity: 0.85;
+}
+
+.lang-toggle-btn:focus {
+    outline: none;
+}
+
+.lang-toggle-btn:focus-visible {
+    outline: 2px solid var(--accent-indigo);
+    outline-offset: 2px;
 }
 
 .cta-button {
@@ -317,9 +363,24 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.cta-button:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-    background: linear-gradient(135deg, #7c1ad4, #440b6e);
+@media (hover: hover) {
+    .cta-button:hover {
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+        background: linear-gradient(135deg, #7c1ad4, #440b6e);
+    }
+}
+
+.cta-button:active {
+    opacity: 0.9;
+}
+
+.cta-button:focus {
+    outline: none;
+}
+
+.cta-button:focus-visible {
+    outline: 2px solid var(--accent-indigo);
+    outline-offset: 2px;
 }
 
 .portfolio-footer {
