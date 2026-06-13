@@ -10,6 +10,8 @@
 
 html {
     background-color: var(--bg-dark);
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 body {
