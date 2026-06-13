@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import ProfileImage from './components/ProfileImage';
 import Experience from './components/Experience';
+import Projects from './components/Projects';
 import type { Language } from './data/translations';
 
 export default function App() {
@@ -50,22 +51,25 @@ export default function App() {
     };
 
     return (
-        <div className="portfolio-container">
+        <div className="portfolio-wrapper">
             <Navbar theme={theme} onToggleTheme={toggleTheme} lang={lang} onToggleLanguage={toggleLanguage} />
+            
+            <div className="portfolio-container">
+                <div className={`main-content ${loaded ? 'fade-in' : ''}`}>
+                    <main className="content-wrapper">
+                        <About lang={lang} />
+                        <ProfileImage />
+                    </main>
+                    <Experience lang={lang} />
+                    <Projects lang={lang} />
+                </div>
 
-            <div className={`main-content ${loaded ? 'fade-in' : ''}`}>
-                <main className="content-wrapper">
-                    <About lang={lang} />
-                    <ProfileImage />
-                </main>
-                <Experience lang={lang} />
+                <footer className="portfolio-footer">
+                    <p>
+                        ©{new Date().getFullYear()} avcialper
+                    </p>
+                </footer>
             </div>
-
-            <footer className="portfolio-footer">
-                <p>
-                    ©{new Date().getFullYear()} avcialper
-                </p>
-            </footer>
         </div>
     );
 }

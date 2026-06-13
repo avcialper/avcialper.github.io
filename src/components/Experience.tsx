@@ -1,6 +1,9 @@
 import { EXPERIENCES } from '../data/experience';
 import { TRANSLATIONS } from '../data/translations';
 import type { Language } from '../data/translations';
+import TechBadges from './TechBadges';
+import Card from './Card';
+import SectionTitle from './SectionTitle';
 
 interface ExperienceProps {
     lang: Language;
@@ -11,12 +14,10 @@ export default function Experience({ lang }: ExperienceProps) {
 
     return (
         <section className="experience-section" id="experience">
-            <h2 className="section-title">
-                <span className="title-slash">./</span>{t.experienceTitle}
-            </h2>
+            <SectionTitle text={t.experienceTitle} />
             <div className="companies-container">
                 {EXPERIENCES.map((co) => (
-                    <div key={co.id} className="company-card">
+                    <Card key={co.id} className="company-card">
                         <div className="company-brand-info">
                             <h3 className="company-name">{co.company}</h3>
                         </div>
@@ -29,21 +30,17 @@ export default function Experience({ lang }: ExperienceProps) {
                                             <span className="role-period">{role.period[lang]}</span>
                                         </div>
                                         <p className="role-description">{role.description[lang]}</p>
-                                        <div className="role-tech-list">
-                                            {role.technologies.map((tech) => (
-                                                <span key={tech} className="tech-badge">
-                                                    {tech}
-                                                </span>
-                                            ))}
-                                        </div>
+                                        <TechBadges
+                                            technologies={role.technologies}
+                                            className="role-tech-list"
+                                        />
                                     </div>
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </Card>
                 ))}
             </div>
         </section>
     );
 }
-
