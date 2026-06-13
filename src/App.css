@@ -13,6 +13,7 @@
     --social-hover-bg: rgba(255, 255, 255, 0.07);
     --inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
     --card-shadow: rgba(0, 0, 0, 0.15);
+    --nav-bg: rgba(23, 23, 23, 0.75);
 }
 
 :root.light-theme {
@@ -30,6 +31,16 @@
     --social-hover-bg: rgba(15, 23, 42, 0.07);
     --inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
     --card-shadow: rgba(15, 23, 42, 0.08);
+    --nav-bg: rgba(248, 250, 252, 0.75);
+}
+
+.portfolio-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 .portfolio-container {
@@ -42,8 +53,7 @@
     position: relative;
     color: var(--text-primary);
     font-family: 'JetBrains Mono', monospace;
-    padding: 2rem;
-    overflow-x: hidden;
+    padding: 5.5rem 2rem 2rem 2rem;
     box-sizing: border-box;
     user-select: none;
     -webkit-user-select: none;
@@ -76,14 +86,28 @@
 }
 
 .portfolio-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem 2rem;
+    z-index: 100;
+    box-sizing: border-box;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.navbar-inner {
     width: 100%;
     max-width: 1100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0 2rem 0;
-    z-index: 20;
-    box-sizing: border-box;
 }
 
 .navbar-logo {
@@ -111,7 +135,6 @@
 .logo-cursor {
     color: var(--accent-indigo);
     font-weight: 900;
-    margin-left: 2px;
     animation: blinkCursor 0.8s infinite;
 }
 
@@ -187,6 +210,58 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.image-frame-3d {
+    position: relative;
+    width: 380px;
+    max-width: 100%;
+    aspect-ratio: 1;
+    perspective: 1000px;
+}
+
+.profile-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.profile-card-inner.flipped {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+.profile-card-front,
+.profile-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--box-background);
+    border: 1px solid var(--border-color);
+    box-shadow:
+        0 20px 40px var(--card-shadow),
+        var(--inset-shadow);
+}
+
+.profile-card-front {
+    transform: rotateY(0deg) translateZ(1px);
+    -webkit-transform: rotateY(0deg) translateZ(1px);
+    z-index: 2;
+}
+
+.profile-card-back {
+    transform: rotateY(180deg) translateZ(1px);
+    -webkit-transform: rotateY(180deg) translateZ(1px);
 }
 
 
@@ -432,7 +507,7 @@
     width: 100%;
 }
 
-.company-card {
+.portfolio-card {
     display: grid;
     grid-template-columns: 260px 1fr;
     gap: 4rem;
@@ -547,8 +622,10 @@
         justify-content: center;
     }
 
-    .image-frame {
-        max-width: 280px;
+    .image-frame,
+    .image-frame-3d {
+        width: 280px;
+        max-width: 100%;
     }
 
     .experience-section {
@@ -556,7 +633,7 @@
         padding: 1rem 0;
     }
 
-    .company-card {
+    .portfolio-card {
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 2.5rem;
@@ -564,8 +641,12 @@
 }
 
 @media (max-width: 480px) {
+    .portfolio-navbar {
+        padding: 1rem 1.5rem;
+    }
+
     .portfolio-container {
-        padding: 1.5rem;
+        padding: 4.5rem 1.5rem 1.5rem 1.5rem;
     }
 
     .social-links {
@@ -574,13 +655,13 @@
         gap: 0.75rem;
     }
 
-    .social-icon-btn,
+    .social-links .social-icon-btn,
     .cta-button {
         width: 100%;
         justify-content: center;
     }
 
-    .company-card {
+    .portfolio-card {
         grid-template-columns: 1fr;
         gap: 2rem;
         padding: 2rem;
@@ -601,5 +682,128 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 0.25rem;
+    }
+}
+
+/* Projects Section Styles */
+.projects-section {
+    max-width: 1100px;
+    width: 100%;
+    margin-top: 5rem;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.project-card.portfolio-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 2.5rem;
+    justify-content: flex-start;
+}
+
+.project-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.project-title-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-image-frame {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--card-shadow);
+    background: rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.project-header .social-icon-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.project-header .social-icon-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.project-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.current-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: var(--accent-emerald);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+
+.project-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.project-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.project-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.25rem;
+}
+
+/* Responsive adjustments for projects */
+@media (max-width: 820px) {
+    .projects-container {
+        grid-template-columns: 1fr;
     }
 }

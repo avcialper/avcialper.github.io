@@ -39,9 +39,7 @@ export default function Logo() {
 
     return (
         <div className="navbar-logo">
-            <span className="logo-slash">./</span>
-            {displayText}
-            <span className="logo-cursor">_</span>
+            <span className="logo-slash">./</span>{displayText}<span className="logo-cursor">_</span>
         </div>
     );
 }
