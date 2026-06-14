@@ -16,7 +16,7 @@ export default function App() {
     const [lang, setLang] = useState<Language>(() => {
         const saved = localStorage.getItem('lang');
         if (saved === 'en' || saved === 'tr') return saved;
-        return navigator.language.startsWith('tr') ? 'tr' : 'en';
+        return 'en';
     });
 
     useEffect(() => {
@@ -54,7 +54,7 @@ export default function App() {
     return (
         <div className="portfolio-wrapper">
             <Navbar theme={theme} onToggleTheme={toggleTheme} lang={lang} onToggleLanguage={toggleLanguage} />
-            
+
             <div className="portfolio-container">
                 <div className={`main-content ${loaded ? 'fade-in' : ''}`}>
                     <main className="content-wrapper">
