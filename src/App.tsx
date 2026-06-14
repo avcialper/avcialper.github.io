@@ -5,6 +5,7 @@ import About from './components/About';
 import ProfileImage from './components/ProfileImage';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import Writings from './components/Writings';
 import type { Language } from './data/translations';
 
 export default function App() {
@@ -62,6 +63,7 @@ export default function App() {
                     </main>
                     <Experience lang={lang} />
                     <Projects lang={lang} />
+                    <Writings lang={lang} />
                 </div>
 
                 <footer className="portfolio-footer">
